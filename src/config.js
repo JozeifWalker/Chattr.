@@ -58,6 +58,8 @@ if(docs.docs.length===0){
     
   }
  }
+
+ //Create User Account
  const registerUser=async(name,email,password)=>{
   try {
     const res=await createUserWithEmailAndPassword(auth,email,password)
@@ -74,6 +76,16 @@ if(docs.docs.length===0){
     
   }
  }
+ //Send Password Reset
+ const sendPasswordReset = async (email) => {
+  try {
+    await sendPasswordResetEmail(auth, email);
+    alert("Password reset link sent!");
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
  //Logout user
  const logout = () => {
   signOut(auth);
@@ -85,5 +97,6 @@ export {
   signInWithGoogle,
   logInWithEmailAndPassword,
   registerUser,
+  sendPasswordReset,
   logout
 };

@@ -55,7 +55,7 @@ const Login = () => {
 								/>
 							</FloatingLabel>
 							<Form.Text>
-								<Link to="/">Forgot Password?</Link>
+								<Link to="/reset">Forgot Password?</Link>
 							</Form.Text>
 
 							<Stack className="col-md-5 mx-auto" style={{ marginTop: '3rem' }} gap={2}>
