@@ -1,0 +1,76 @@
+$mobile:576px;
+$smallTablet: 768px;
+$large:992px;
+$extraLarge:1200px;
+
+
+.landing-container{
+    height: 100vh;
+    width: 100%;
+    background: url('../../assets/images/collaborate.jpg'),rgba(0,0,0,0.6);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    
+    #landing-contents{
+       height: inherit;
+       width: inherit;
+       letter-spacing: 1px;
+       color: #E7ECEF;
+       font-family: 'Poppins', sans-serif;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       h3{
+        font-weight: 300;
+       }
+       #site-title{
+        font-size: 4rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+       }
+       #signIn{
+        margin: 2rem 0rem;
+        width: 100%;
+        border-radius: 1.25rem;
+        background-color: #274C77;
+        border: 0px;
+       }
+    }
+   
+       @media screen and (min-width:$smallTablet) and (max-width:$large){
+       #landing-contents{
+        
+        h1{
+            font-size: 3rem;
+        }
+            #site-title{
+                font-size: 7rem;
+            }
+            #signIn{
+                width: 50% !important;
+            }
+        }
+       
+
+       }
+       @media screen and (min-width:993px){
+        #landing-contents{
+           
+            h1{
+                font-size: 3rem;
+            }
+                #site-title{
+                    font-size: 10rem;
+                }
+                #signIn{
+                    width: 30% !important;
+                }
+            }
+           
+       
+
+    }
+
+}
