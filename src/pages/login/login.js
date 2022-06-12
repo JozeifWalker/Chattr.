@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
 import { FcGoogle } from 'react-icons/fc';
-import {BsArrowRight} from 'react-icons/bs';
+import Stack from 'react-bootstrap/Stack'
 import Logo from '../../components/logo/logo';
 import './login.scss';
 
@@ -47,14 +47,27 @@ const Login = () => {
 								<Link to="/">Forgot Password?</Link>
 							</Form.Text>
 						</Form.Group>
-						<Form.Group id={'button-group'}>
+                        
+						<Form.Group>
+                        <Stack className="col-md-5 mx-auto" style={{marginTop:'3rem'}}  gap={2}>
 							<Button id={'login-button'} onClick={() => logInWithEmailAndPassword(email, password)}>
 								Login
 							</Button>
+                            <Button variant={'outline-primary'} id={'create-acc-btn'}>Create Account</Button>
+                            </Stack>
 						</Form.Group>
-                       
-                        <hr />
+
+                         <div style={{display:'flex',flexDirection:'row',alignItems:'center',margin:'3rem 0rem'}}>
+                        <div style={{width:'50%',padding:'0rem 1rem'}}><hr /></div>
+                        <span>or</span>
+                        <div style={{width:'50%',padding:'0rem 1rem'}}><hr /></div>
+                        </div>
+            
+                    <Stack className="col-md-5 mx-auto"  gap={2}> 
 					<Button variant={'outline-primary'} id={'login-google-btn'}  onClick={signInWithGoogle}><FcGoogle size={30}/></Button>
+                    </Stack>
+                   
+                    
 					</Form>
 					
 				</Card>

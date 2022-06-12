@@ -30,23 +30,28 @@ $extraLarge: 1200px;
 			flex-direction: column;
 			justify-content: space-evenly;
 			width: inherit;
-			min-height: 50vh;
+			min-height: 20vh;
 		}
-		#button-group {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			width: inherit;
-			margin: 2rem 0rem;
-			#login-button {
-				width: 100%;
-				border-radius: 1.25rem;
-				background-color: #274c77;
-				border: 0px;
-                height: 3rem;
-			}
+
+		#login-button {
+			width: 100%;
+			border-radius: 1.25rem;
+			background-color: #274c77;
+			border: 0px;
+			height: 3rem;
 		}
+		#create-acc-btn {
+			width: 100%;
+			border-radius: 1.25rem;
+			border: 1px solid #274c77;
+			color: #274c77;
+			height: 3rem;
+		}
+		#create-acc-btn:hover {
+			background-color: #274c77;
+			color: white;
+		}
+
 		#login-google-btn {
 			border-radius: 1.25rem;
 			border: 1px solid #274c77;
@@ -61,42 +66,32 @@ $extraLarge: 1200px;
 @media screen and (min-width: $smallTablet) and (max-width: $large) {
 	.login-container {
 		#button-group {
-            display: flex;
-            flex-direction: row !important;
-            justify-content: flex-start !important;
+			display: flex;
+			flex-direction: row !important;
+			justify-content: flex-start !important;
 			align-items: flex-start !important;
-			width: 100% !important;
 			margin: 0rem 0rem;
 			#login-button {
 				width: 30% !important;
 			}
-		}
-		#login-google-btn {
-			align-self: flex-start;
-			width: 30%;
 		}
 	}
 }
 @media screen and (min-width: 993px) {
 	.login-container {
 		#login-card {
-			width: 70% !important;
+			width: 50% !important;
 			align-items: center;
-			#button-group {
-                display: flex;
-                flex-direction: row !important;
-                justify-content: flex-start !important;
-                align-items: flex-start !important;
-                width: 100% !important;
-                margin: 0rem 0rem;
-				#login-button {
-					width: 30% !important;
-                    
+			#login-form {
+				width: 100%;
+
+				#button-group {
+					display: flex;
+					flex-direction: row !important;
+					justify-content: flex-start !important;
+					align-items: flex-start !important;
+					margin: 0rem 0rem;
 				}
-			}
-			#login-google-btn {
-				align-self: flex-start;
-				width: 30%;
 			}
 		}
 	}
