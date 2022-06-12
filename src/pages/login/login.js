@@ -53,7 +53,7 @@ const Login = () => {
 							<Button id={'login-button'} onClick={() => logInWithEmailAndPassword(email, password)}>
 								Login
 							</Button>
-                            <Button variant={'outline-primary'} id={'create-acc-btn'}>Create Account</Button>
+                            <Button href={'/signup'} variant={'outline-primary'} id={'create-acc-btn'}>Create Account</Button>
                             </Stack>
 						</Form.Group>
 

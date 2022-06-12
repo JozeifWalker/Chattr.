@@ -13,11 +13,10 @@ const Landing = () => {
 				<Container fluid id="landing-contents">
 					<Stack style={{alignItems:'center',justifyContent:'center'}} gap={5}>
 					<Logo />
-					{/* <h1 id='site-title'>Chattr.</h1> */}
                     <h3>Taking collaboration & teamwork to the next level.</h3>
                     <Button href="/login" id={'signIn'}>Sign In</Button>
                     <hr style={{backgroundColor:'white',width:'50%',margin:'2rem 0rem'}}></hr>
-                    <p>Dont have an account ? <Link to="/">Create one.</Link></p>
+                    <p>Dont have an account ? <Link to="/signup">Create one.</Link></p>
 					</Stack>
                     
 				</Container>
