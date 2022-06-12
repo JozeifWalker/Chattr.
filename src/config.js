@@ -58,14 +58,13 @@ if(docs.docs.length===0){
     
   }
  }
- const registerUser=async(firstname,lastname,email,password)=>{
+ const registerUser=async(name,email,password)=>{
   try {
     const res=await createUserWithEmailAndPassword(auth,email,password)
     const user=res.user;
     await addDoc(collection(db,"users"),{
       uid:user.uid,
-      firstName:firstname,
-      lastName:lastname,
+      name,
       authProvider:"local",
       email
     })

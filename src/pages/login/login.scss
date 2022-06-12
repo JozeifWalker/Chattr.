@@ -2,60 +2,42 @@ $smallTablet: 768px;
 $large: 992px;
 $extraLarge: 1200px;
 .login-container {
-	height: 100vh;
+	min-height: 100vh;
 	width: 100%;
-	background: url('../../assets/images/blue-bg.jpg');
+	background: url('../../assets/images/adrian-infernus-GLf7bAwCdYg-unsplash.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 0rem 1rem;
-	h2 {
-		font-size: 3rem;
+	padding: 1rem;
+	h3 {
+		font-size: 2rem;
 		font-weight: 500;
 		letter-spacing: 2px;
-		color: white;
+		color: #274c77;
 		font-family: 'Poppins', sans-serif;
 	}
 
-	#login-card {
-		width: inherit;
+	#signInContainer {
+		width: 100%;
 		min-height: 50vh;
-		padding: 2rem;
 		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-		#login-form {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-evenly;
-			width: inherit;
-			min-height: 20vh;
-		}
+		padding: 2rem;
 
 		#login-button {
-			width: 100%;
 			border-radius: 1.25rem;
 			background-color: #274c77;
 			border: 0px;
-			height: 3rem;
-		}
-		#create-acc-btn {
-			width: 100%;
-			border-radius: 1.25rem;
-			border: 1px solid #274c77;
-			color: #274c77;
-			height: 3rem;
-		}
-		#create-acc-btn:hover {
-			background-color: #274c77;
-			color: white;
+			padding: 1rem 0rem;
 		}
 
 		#login-google-btn {
 			border-radius: 1.25rem;
 			border: 1px solid #274c77;
 			color: #274c77;
+			padding: 1rem 0rem;
 		}
 		#login-google-btn:hover {
 			background-color: #274c77;
@@ -64,35 +46,34 @@ $extraLarge: 1200px;
 	}
 }
 @media screen and (min-width: $smallTablet) and (max-width: $large) {
-	.login-container {
-		#button-group {
-			display: flex;
-			flex-direction: row !important;
-			justify-content: flex-start !important;
-			align-items: flex-start !important;
-			margin: 0rem 0rem;
-			#login-button {
-				width: 30% !important;
-			}
+	.login-container{
+		#signInContainer{
+			width:90%;
 		}
 	}
+	
 }
-@media screen and (min-width: 993px) {
-	.login-container {
-		#login-card {
-			width: 50% !important;
-			align-items: center;
-			#login-form {
-				width: 100%;
+@media screen and (min-width: 993px) and (max-width:1200px) {
+	.login-container{
+		#signInContainer{
+			width:80%;
+		}
+	}
 
-				#button-group {
-					display: flex;
-					flex-direction: row !important;
-					justify-content: flex-start !important;
-					align-items: flex-start !important;
-					margin: 0rem 0rem;
-				}
-			}
+}
+@media screen and (min-width:1201px){
+	.login-container{
+		#signInContainer{
+			width:45% !important;
+		}
+	}
+
+}
+
+@media(orientation:landscape){
+	.login-container{
+		#signInContainer{
+			width:90%;
 		}
 	}
 }
