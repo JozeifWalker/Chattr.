@@ -44,6 +44,7 @@ $extraLarge: 1200px;
 				border-radius: 1.25rem;
 				background-color: #274c77;
 				border: 0px;
+                height: 3rem;
 			}
 		}
 		#login-google-btn {
@@ -71,7 +72,7 @@ $extraLarge: 1200px;
 			}
 		}
 		#login-google-btn {
-			align-self: center;
+			align-self: flex-start;
 			width: 30%;
 		}
 	}
@@ -90,11 +91,12 @@ $extraLarge: 1200px;
                 margin: 0rem 0rem;
 				#login-button {
 					width: 30% !important;
+                    
 				}
 			}
 			#login-google-btn {
 				align-self: flex-start;
-				width: 40%;
+				width: 30%;
 			}
 		}
 	}
