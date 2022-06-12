@@ -7,14 +7,14 @@ $extraLarge:1200px;
 .landing-container{
     height: 100vh;
     width: 100%;
-    background: url('../../assets/images/collaborate.jpg'),rgba(0,0,0,0.6);
+    background: url('../../assets/images/collaborate.jpg'),rgba(39,76,119,0.6);
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: multiply;
     
     #landing-contents{
        height: inherit;
-       width: inherit;
+       width: 100%;
        letter-spacing: 1px;
        color: #E7ECEF;
        font-family: 'Poppins', sans-serif;
@@ -31,25 +31,22 @@ $extraLarge:1200px;
         letter-spacing: 2px;
        }
        #signIn{
-        margin: 2rem 0rem;
         width: 100%;
         border-radius: 1.25rem;
         background-color: #274C77;
         border: 0px;
+        padding: 1rem 0rem;
        }
     }
    
        @media screen and (min-width:$smallTablet) and (max-width:$large){
        #landing-contents{
-        
+        width: 50%;
         h1{
             font-size: 3rem;
         }
             #site-title{
                 font-size: 7rem;
-            }
-            #signIn{
-                width: 50% !important;
             }
         }
        
@@ -57,7 +54,7 @@ $extraLarge:1200px;
        }
        @media screen and (min-width:993px){
         #landing-contents{
-           
+            width: 50%;
             h1{
                 font-size: 3rem;
             }
@@ -65,7 +62,7 @@ $extraLarge:1200px;
                     font-size: 10rem;
                 }
                 #signIn{
-                    width: 30% !important;
+                    width: 50% !important;
                 }
             }
            
