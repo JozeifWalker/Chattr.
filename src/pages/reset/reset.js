@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import './reset.scss';
 
 import { auth, sendPasswordReset } from '../../config';
@@ -14,7 +14,7 @@ import Stack from 'react-bootstrap/esm/Stack';
 
 export default function Reset() {
 	const [ email, setEmail ] = useState('');
-	const [ user, loading, error ] = useAuthState(auth);
+	const [ user, loading ] = useAuthState(auth);
 	const navigate = useNavigate();
 
 	useEffect(

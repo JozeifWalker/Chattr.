@@ -22,7 +22,7 @@ export default function Register() {
   const [passwordValidation,setPasswordValidation]=useState(false);
   const navigate=useNavigate();
 
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   const register=(event)=>{
     event.preventDefault()
