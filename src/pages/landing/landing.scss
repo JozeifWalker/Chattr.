@@ -5,39 +5,48 @@ $extraLarge:1200px;
 
 
 .landing-container{
-    min-height: 100vh;
+   min-height: 100vh;
     width: 100%;
-    background: url('../../assets/images/adrian-infernus-GLf7bAwCdYg-unsplash.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-blend-mode: multiply;
-    
-    #landing-contents{
-       min-height: inherit;
-       width: 100%;
-       letter-spacing: 1px;
-       color: #E7ECEF;
-       font-family: 'Poppins', sans-serif;
-       display: flex;
+   background-color: #1B065E;
+   color: #E7ECEF;
+   font-family: 'Poppins', sans-serif;
+     display: flex;
        flex-direction: column;
-       justify-content: center;
+       justify-content: flex-start;
        align-items: center;
-       h3{
+       #contents{
+        #hero-title{
+            background: url('../../assets/images/collaborate.jpg'),rgba(0,0,0,0.5);
+            background-blend-mode: multiply;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            width: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            h1{
+                width: 100%;
+
+            }
+       h3,h5{
         font-weight: 300;
        }
-       #site-title{
-        font-size: 4rem;
-        font-weight: 500;
-        letter-spacing: 2px;
-       }
-       #signIn{
-        width: 100%;
-        border-radius: 1.25rem;
-        background-color: #274C77;
-        border: 0px;
+       
+       #signin{
+        width: 14rem;
         padding: 1rem 0rem;
        }
     }
+       #landing-points.card.border-light{
+        background: transparent !important;
+        border:0px;
+        width:100%;
+       }
+    }
+    
    
        @media screen and (min-width:$smallTablet) and (max-width:$large){
        #landing-contents{
@@ -53,19 +62,24 @@ $extraLarge:1200px;
 
        }
        @media screen and (min-width:993px){
-        #landing-contents{
-            width: 50%;
-            h1{
-                font-size: 3rem;
-            }
-                #site-title{
-                    font-size: 10rem;
-                }
-                #signIn{
-                    width: 50% !important;
+      
+        #contents{
+            #hero-title{
+                align-items: flex-start !important;
+                #signin{
+                    width: 18rem;
                 }
             }
-           
+            #landing-points-container{
+               justify-content: center !important;
+            #landing-points.card.border-light{
+                width: 32% !important;
+            }
+        }
+            
+        }
+       
+        
        
 
     }
