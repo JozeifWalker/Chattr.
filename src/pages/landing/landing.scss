@@ -66,6 +66,9 @@ $extraLarge:1200px;
         #contents{
             #hero-title{
                 align-items: flex-start !important;
+                h1{
+                    width:75%;
+                }
                 #signin{
                     width: 18rem;
                 }

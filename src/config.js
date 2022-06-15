@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import {GoogleAuthProvider,getAuth,signInWithPopup,signInWithEmailAndPassword,createUserWithEmailAndPassword,sendPasswordResetEmail,signOut} from "firebase/auth";
+import {GoogleAuthProvider,getAuth,signInWithPopup,signInWithEmailAndPassword,createUserWithEmailAndPassword,sendPasswordResetEmail,signOut, FacebookAuthProvider, signInWithRedirect} from "firebase/auth";
 import {getFirestore, query, getDocs, collection, where,addDoc} from "firebase/firestore";
 
 
@@ -24,7 +24,7 @@ export const firebaseConfig = {
  const googleProvider = new GoogleAuthProvider();
  const signInWithGoogle=async()=>{
   try {
-const res=await signInWithPopup(auth,googleProvider);
+const res=await signInWithRedirect(auth,googleProvider);
 const user=res.user;
 const q= query(collection(db,"users"),where("uid","==",user.uid));
 const docs =await getDocs(q);
@@ -41,6 +41,29 @@ if(docs.docs.length===0){
     console.error(err)
     alert(err.message)
     
+  }
+ }
+ //Authentication with Facebook
+ const facebookProvider= new FacebookAuthProvider();
+ facebookProvider.addScope('user_birthday')
+ const signInWithFacebook=async()=>{
+  try {
+    const res=await signInWithRedirect(auth,facebookProvider);
+    const user=res.user;
+    const q= query(collection(db,"users"),where("uid","==",user.uid));
+const docs =await getDocs(q);
+if(docs.docs.length===0){
+  await addDoc(collection(db,"users"),{
+    uid:user.uid,
+    name:user.displayName,
+    authProvider: "facebook",
+    email:user.email
+  })
+}
+
+  } catch (err) {
+    console.error(err)
+    alert(err.message)
   }
  }
 
@@ -95,6 +118,7 @@ export {
   auth,
   db,
   signInWithGoogle,
+  signInWithFacebook,
   logInWithEmailAndPassword,
   registerUser,
   sendPasswordReset,
