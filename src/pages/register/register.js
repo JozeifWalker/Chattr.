@@ -127,15 +127,19 @@ export default function Register() {
 								/>
 							
 							</InputGroup>
+							
 							<div className='skill-section'>
+								
 								{skills.length!==0?skills.map((item,index)=>(
 								<div key={index} id='skill-section__card'>
 								    <CloseButton onClick={()=>deleteSkill(index)} id='skill-section__card--close' variant="white" />
 									<span>{item}</span>
 								</div>
 								)):<div>No Skills Added.</div>}
+								</div>
+								
 
-							</div>
+							
 							</Form.Group>
                               
 

@@ -51,7 +51,6 @@ $extraLarge: 1200px;
 			padding: 1rem;
 			#skill-section__card{
 				background: #274c77;
-				width:30%;
 				min-height: 5rem;
 				display: flex;
 				flex-direction: column;
@@ -113,16 +112,17 @@ $extraLarge: 1200px;
 		position: relative;
 		display: flex;
 		flex-direction: row;
+		align-items: stretch;
 		padding: 0rem;
 		.hero{
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-end;
 			width: 60% ;
-			 height: 100vh;
+			 min-height: 124vh;
 			
 			background-color: #666A86;
-			background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'),rgba(0, 0, 0, 0.5);
+			background: url('../../assets/images/register-hero.jpg'),rgba(0, 0, 0, 0.5);
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-position: center;
@@ -134,8 +134,16 @@ $extraLarge: 1200px;
 		}
 		#signInContainer {
 			width: 40% !important;
-			height: 100vh;
+			min-height: 100vh;
 			justify-content: center !important;
+			.skill-section{
+				justify-content:space-between;
+				width: 100%;
+			#skill-section__card{
+				flex-basis: 49% !important;
+				
+			}
+		}
 			
 		 
 
