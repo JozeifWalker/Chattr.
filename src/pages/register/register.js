@@ -5,10 +5,12 @@ import './register.scss';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import { BsFacebook } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import Stack from 'react-bootstrap/Stack';
+import CloseButton from 'react-bootstrap/CloseButton'
 import Header from '../../components/header/header';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -17,10 +19,14 @@ import { auth, registerUser, signInWithGoogle, signInWithFacebook } from '../../
 export default function Register() {
 	const [ name, setName ] = useState('');
 	const [ email, setEmail ] = useState('');
+	const  [role,setRole]=useState('');
+	const [skillText,setSkillText]=useState('');
+	const  [skills,setSkills]=useState([]);
 	const [ password, setPassword ] = useState('');
 	const [ match, setMatch ] = useState(false);
 	const [ confirmPassword, setConfirmPassword ] = useState('');
 	const [ passwordValidation, setPasswordValidation ] = useState(false);
+	const [creatingAcct,setCreateAcct]=useState(false);
 	const navigate = useNavigate();
 
 	const [ user, loading ] = useAuthState(auth);
@@ -28,9 +34,28 @@ export default function Register() {
 	const register = (event) => {
 		event.preventDefault();
 		if (password === confirmPassword) {
-			registerUser(name, email, password);
+			registerUser(name, email, password,role,skills);
+			setCreateAcct(true)
+		}else{
+			setCreateAcct(false)
 		}
 	};
+	const addSkill=()=>{
+		 setSkills([...skills,skillText,])
+		 setSkillText('')
+	}
+	const onKeyDownAddSkill=(e)=>{
+		if(e.keyCode===13&&skillText.length>0&&skills.length<10){
+		addSkill(e)
+		}
+	}
+	const deleteSkill=(index)=>{
+		console.log(index)
+		let skillList=[...skills]
+		skillList.splice(index,1)
+		setSkills(skillList)
+	}
+	console.log(skills)
 	useEffect(
 		() => {
 			if (loading) return;
@@ -55,8 +80,8 @@ export default function Register() {
 			<Header page={'register'} />
 			<div className="register-container">
 				<div className="hero">
-					<h3 style={{color:'white'}}>
-					"If you want to lift yourself up, lift up someone else."<br></br>– Booker T. Washington
+					<h3 style={{ color: 'white' }}>
+						"If you want to lift yourself up, lift up someone else."<br />– Booker T. Washington
 					</h3>
 				</div>
 				<Card id={'signInContainer'}>
@@ -80,6 +105,39 @@ export default function Register() {
 									required
 								/>
 							</FloatingLabel>
+							<Form.Select aria-label="role-selection" onChange={(e)=>setRole(e.target.value)}>
+								<option value="">What's your role?</option>
+								{["Front End Developer","Back End Developer","Ui/UX Designer","Business Analyst","Project Manager"].map((opt,index)=>(
+								<option key={index} value={opt}>{opt}</option>
+								))}
+
+							</Form.Select>
+                              <Form.Group>
+							  <Form.Text>Add Your Relevant Skills({skills.length<10?10-skills.length:<span style={{color:'red'}}>Limit Reached</span>})</Form.Text>
+							  
+							<InputGroup className="mb-3">
+						
+								<Form.Control
+									type="text"
+									placeholder='Add Your Skill And Press Enter'
+									value={skillText}
+									onChange={(e) => setSkillText(e.target.value)}
+									onKeyDown={(e)=>onKeyDownAddSkill(e)}
+									required
+								/>
+							
+							</InputGroup>
+							<div className='skill-section'>
+								{skills.length!==0?skills.map((item,index)=>(
+								<div key={index} id='skill-section__card'>
+								    <CloseButton onClick={()=>deleteSkill(index)} id='skill-section__card--close' variant="white" />
+									<span>{item}</span>
+								</div>
+								)):<div>No Skills Added.</div>}
+
+							</div>
+							</Form.Group>
+                              
 
 							<FloatingLabel label="Password">
 								<Form.Control
@@ -121,7 +179,7 @@ export default function Register() {
 									}
 									onClick={(event) => register(event)}
 								>
-									Create Account
+									{creatingAcct?'Creating Account...':'Create Account'}
 								</Button>
 
 								<div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>

@@ -40,6 +40,42 @@ $extraLarge: 1200px;
 			color: black;
 			font-family: 'Poppins', sans-serif;
 		}
+		.skill-section{
+			background: transparent;
+			width: 100%;
+			min-height: 0vh;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			padding: 1rem;
+			#skill-section__card{
+				background: #274c77;
+				width:30%;
+				min-height: 5rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				flex-basis: 100%;
+				margin-bottom: 1rem;
+				padding: 1rem;
+				position: relative;
+				span{
+				color: white;
+				margin-bottom: 0;
+				text-align: left;
+				}
+				#skill-section__card--close{
+					position: absolute;
+					right: 0;
+					top: 0;
+					padding-right: 0rem;
+					padding-top: 1rem;
+					padding-left: 1rem;
+				}
+			}
+		}
 	}
 	#create-acct {
 		

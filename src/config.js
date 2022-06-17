@@ -83,7 +83,7 @@ if(docs.docs.length===0){
  }
 
  //Create User Account
- const registerUser=async(name,email,password)=>{
+ const registerUser=async(name,email,password,role,skills)=>{
   try {
     const res=await createUserWithEmailAndPassword(auth,email,password)
     const user=res.user;
@@ -91,7 +91,9 @@ if(docs.docs.length===0){
       uid:user.uid,
       name,
       authProvider:"local",
-      email
+      email,
+      role,
+      skills
     })
   } catch (err) {
     console.error(err);
